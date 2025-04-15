@@ -1,6 +1,6 @@
 object rolando{
     const artefactos  =  #{} //Conjunto VACIAS!!! SET
-    const historial = #{}
+    const historial = []
     var capacidad = 2
     const morada = castillo
    
@@ -52,7 +52,6 @@ object armadura{}
 
 //################### morada ###########################
 object castillo{
-    const moradores = #{rolando}
     const baul = #{}
 
     method depositar(artefactos){

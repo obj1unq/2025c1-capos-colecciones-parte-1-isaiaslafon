@@ -17,7 +17,6 @@ describe "Capos parte 1"{
         rolando.encontrar(collar)
         
         assert.equals(#{espada, libro}, rolando.artefactos())
-
         //assert.that(rolando.tiene(espadaDeConan)) //Todavia no exite este método.
         //assert.that(rolando.artefactos().contains(espada))
         //assert.equals(#{espada}, rolando.artefactos())
