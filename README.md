@@ -70,14 +70,18 @@ Si consultamos la historia de encuentro con los artefactos debería ser:
  4. armadura de acero valyrio
  5. collar divino (de nuevo!)
  
- ## Parte 2 (mensajes con bloques) 
+## Parte 2 (mensajes con bloques) 
 
 ### Comportamiento de los artefactos
 
 Los artefactos son elementos que aportan poder en una batalla al personaje que lo posee
-Pero ojo que cada vez que se combate en una batalla sufren efectos. El poder de pelea
+Pero ojo que cada vez que se combate en una batalla sufren efectos. 
+
+El poder de pelea
 de rolando, va a depender de un valor base (inicialmente configurable) 
-y de sus artefactos. Tener en cuenta al momento de programar los artefactos que éstos podrían ser
+y de sus artefactos. 
+
+Tener en cuenta al momento de programar los artefactos que éstos podrían ser
 usados por otros personajes que aún se han introducido.
   
 - Espada del destino: Las primera vez que se utiliza aporta la misma cantidad que el poder base del personaje, 
@@ -113,8 +117,10 @@ entonces el poder de pelea de rolando es 5 + 5 + 6 + 3 = 19
 
 
 ### Libro de hechizos
+
 - El libro de hechizos contiene varios hechizos, pero solo se pueden usar de uno a la vez. 
 Los hechizos están ordenados y se utilizan en ese orden.
+
 Luego de utilizar  un hechizo éste se descarta. Existen estos 3 hechizos (pero podría haber más)
   - Bendición: aporta 4 de poder de pelea
   - Invisibilidad: aporta la misma cantidad que el poder de pelea base del personaje
@@ -162,6 +168,7 @@ En el caso anterior no es poderoso. Pero si ponemos como poder base de rolando 1
 #### Artefacto fatal
 
 Saber si rolando tiene encima algún artefacto fatal para luchar contra un enemigo: 
+
 Un artefacto letal es aquel que le da un poder de pelea superior al poder 
 de batalla de su enemigo.
 
