@@ -5,6 +5,10 @@ object rolando{
     const morada = castillo
     var property poderBase = 100
    
+    method capacidad(_capacidad){
+        capacidad = _capacidad
+    }
+
     method incrementarCapacidad(cantidad){
         capacidad += cantidad
     }
