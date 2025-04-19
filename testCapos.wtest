@@ -55,4 +55,104 @@ describe "Capos parte 1"{
      }
 }
 
+describe "parte 2" {
+    test "poder artefactos y batalla" {
+        rolando.poderBase(5)
+        rolando.capacidad(3)
+        rolando.encontrar(espada)
+        assert.equals(5, espada.poder(rolando))
+        rolando.encontrar(armadura)
+        assert.equals(6, armadura.poder(rolando))
+        rolando.encontrar(collar)
+        assert.equals(3, collar.poder(rolando))
+        
+        rolando.batalla()
+        assert.equals(6, rolando.poderBase())
+        assert.equals(3, espada.poder(rolando))
+        assert.equals(6, armadura.poder(rolando))
+        assert.equals(3, collar.poder(rolando))
+
+        rolando.batalla()
+        assert.equals(7, rolando.poderBase())
+        assert.equals(3.5, espada.poder(rolando))
+        assert.equals(6, armadura.poder(rolando))
+        assert.equals(5, collar.poder(rolando))
+
+        rolando.batalla()
+        assert.equals(8, rolando.poderBase())
+        assert.equals(4, espada.poder(rolando))
+        assert.equals(6, armadura.poder(rolando))
+        assert.equals(6, collar.poder(rolando))
+
+    }
+
+    test "poder de pelea" {
+        rolando.poderBase(5)
+        rolando.capacidad(3)
+        rolando.encontrar(espada)
+        rolando.encontrar(armadura)
+        rolando.encontrar(collar)
+        assert.equals(19, rolando.poder())
+    }
+
+    test "libro de hechizos" {
+        rolando.poderBase(5)
+        rolando.encontrar(libro)
+        castillo.baul(#{espada, armadura, collar})
+        libro.hechizos([bendicion, invisibilidad, invocacion])
+
+        assert.equals(4, libro.poder(rolando))
+        
+        rolando.batalla()
+        assert.equals(6, libro.poder(rolando))
+
+        rolando.batalla()
+        assert.equals(7, libro.poder(rolando))
+
+        rolando.batalla()
+        assert.equals(0, libro.poder(rolando))
+    }
+
+    test "enemigos vencibles y moradas conquistables" {
+        rolando.poderBase(5)
+        rolando.capacidad(3)
+        rolando.encontrar(espada)
+        rolando.encontrar(collar)
+        rolando.encontrar(armadura)
+        assert.equals(19, rolando.poder())
+        assert.equals(16, archibaldo.poder())
+        assert.that(rolando.puedeVencer(archibaldo))
+        assert.equals(#{archibaldo, astra}, erethia.enemigosVencibles(rolando))
+        assert.equals(#{palacio, torre}, erethia.moradasConquistables(rolando))
+    }
+
+    test "poderoso" {
+        rolando.poderBase(5)
+        rolando.capacidad(3)
+        rolando.encontrar(espada)
+        rolando.encontrar(collar)
+        rolando.encontrar(armadura)
+        assert.notThat(erethia.esPoderoso(rolando))
+        rolando.poderBase(10)
+        assert.that(erethia.esPoderoso(rolando))
+    }
+
+    test "artefacto fatal" {
+        rolando.poderBase(15)
+        rolando.capacidad(3)
+        rolando.encontrar(espada)
+        rolando.encontrar(collar)
+        rolando.encontrar(armadura)
+     
+        assert.equals(15, espada.poder(rolando))
+        assert.that(rolando.tieneArtefactoFatal(astra))
+        assert.equals(espada, rolando.artefactoFatal(astra))
+
+        assert.notThat(rolando.tieneArtefactoFatal(caterina))
+        assert.throwsException({rolando.artefactoFatal(caterina)})
+    }
+
+
+}
+
  
