@@ -1,6 +1,6 @@
 object rolando{
-    const artefactos  =  #{} //Conjunto VACIAS!!! SET
-    const historial = []
+    const artefactos  =  #{} //Conjunto VACIO!!! SET porque no importa el orden ni repetidos.
+    const historial = [] //importa le orden y repetidos, por eso es una lista.
     var capacidad = 2
     const morada = castillo
    
@@ -8,9 +8,6 @@ object rolando{
         capacidad += cantidad
     }
 
-/*
- Se desea saber el orden en que rolando fue encontrandose los artefactos, independientemente de si los agarró o no.
-*/
     method artefactos(){
         return  artefactos
     }
@@ -36,7 +33,7 @@ object rolando{
 
     method irAMorada(){
         morada.depositar(artefactos)
-        artefactos.clear() //    artefactos.removeAll(artefactos)
+        artefactos.clear() //    artefactos.removeAll(artefactos) //EQUIVALENTE pero no aprovecha el clear.
     }
  
 }
@@ -52,13 +49,13 @@ object armadura{}
 
 //################### morada ###########################
 object castillo{
-    const baul = #{}
+    const baul = #{} //No importa el orden ni repetidos, por eso es un conjunto/set.
 
     method depositar(artefactos){
         baul.addAll(artefactos)
     }
 
-    method baul(){ //PARA TESTEAR!
+    method baul(){ //PARA TESTEAR en un inicio, pero luego se vuelve necesario para que Rolando pueda indicar sus posesiones!
         return baul
     }
 }
